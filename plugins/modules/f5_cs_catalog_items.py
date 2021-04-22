@@ -37,6 +37,7 @@ options:
             - beacon
             - dnslb
             - dns
+            - ibd
             - secondary_dns
 
 author:
@@ -173,6 +174,7 @@ class ModuleParameters(Parameters):
                 'dns': 'c-aau0eSVXtL',
                 'dnslb': 'c-aaQnOrPjGu',
                 'eap': 'c-aa9N0jgHI4',
+                'ibd': 'c-aaim9OdfHI',
                 'beacon': 'c-aacHacMCM8',
             }
             return mapping.get(self._values['service'], None)
@@ -188,6 +190,7 @@ class ModuleParameters(Parameters):
                 'c-aau0eSVXtL': 'dns',
                 'c-aaQnOrPjGu': 'dnslb',
                 'c-aa9N0jgHI4': 'eap',
+                'c-aaim9OdfHI': 'ibd',
                 'c-aacHacMCM8': 'beacon',
             }
             return mapping.get(self._values['catalog_id'], None)
@@ -414,7 +417,7 @@ class ArgumentSpec(object):
             catalog_id=dict(),
             service=dict(
                 default=None,
-                choices=['secondary_dns', 'dns', 'beacon', 'dnslb', 'eap']
+                choices=['secondary_dns', 'dns', 'beacon', 'dnslb', 'eap', 'ibd']
             ),
             state=dict(
                 default='present',
